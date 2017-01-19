@@ -4,19 +4,50 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>DODOI</title>
+    <title>spring自定义标签如何实现 | DODOI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Liu Jia">
     
 
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="DODOI">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="一.完成一个自定义配置一般需要以下步骤
+设计配置属性和JavaBean
+编写XSD文件
+编写NamespaceHandler和BeanDefinitionParser完成解析工作
+编写spring.handlers和spring.schemas串联起所有部件
+在Bean文件中应用
+二.设计配置属性和JavaBean
+
+需要配置User实体，配置属性name和age,id是默认需要的
+12345pu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring自定义标签如何实现">
+<meta property="og:url" content="http://yoursite.com/2017/01/19/spring自定义标签如何实现/index.html">
 <meta property="og:site_name" content="DODOI">
+<meta property="og:description" content="一.完成一个自定义配置一般需要以下步骤
+设计配置属性和JavaBean
+编写XSD文件
+编写NamespaceHandler和BeanDefinitionParser完成解析工作
+编写spring.handlers和spring.schemas串联起所有部件
+在Bean文件中应用
+二.设计配置属性和JavaBean
+
+需要配置User实体，配置属性name和age,id是默认需要的
+12345pu">
+<meta property="og:updated_time" content="2017-01-19T09:03:57.250Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DODOI">
+<meta name="twitter:title" content="spring自定义标签如何实现">
+<meta name="twitter:description" content="一.完成一个自定义配置一般需要以下步骤
+设计配置属性和JavaBean
+编写XSD文件
+编写NamespaceHandler和BeanDefinitionParser完成解析工作
+编写spring.handlers和spring.schemas串联起所有部件
+在Bean文件中应用
+二.设计配置属性和JavaBean
+
+需要配置User实体，配置属性name和age,id是默认需要的
+12345pu">
 
     
     <link rel="alternative" href="/atom.xml" title="DODOI" type="application/atom+xml">
@@ -70,66 +101,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/01/19/z-submodule/" title="hexo项目引用模板不能提交问题 submodule问题" itemprop="url">hexo项目引用模板不能提交问题 submodule问题</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Liu Jia" target="_blank" itemprop="author">Liu Jia</a>
-		
-  <p class="article-time">
-    <time datetime="2017-01-19T09:18:21.000Z" itemprop="datePublished"> Published 2017-01-19</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>hexo 生成的博客，引入新的模板<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/wuchong/jacman.git themes/jacman</div></pre></td></tr></table></figure></p>
-<p>项目提交git,出现异常<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">The page build failed with the following error:</div><div class="line"></div><div class="line">The submodule `themes/jacman` was not properly initialized with a `.gitmodules` file. For more information, see https://help.github.com/articles/page-build-failed-missing-submodule/.</div><div class="line"></div><div class="line">For information on troubleshooting Jekyll see:</div><div class="line"></div><div class="line">  https://help.github.com/articles/troubleshooting-jekyll-builds</div><div class="line"></div><div class="line">If you have any questions you can contact us by replying to this email.</div></pre></td></tr></table></figure></p>
-<p>问题通过submodule命令解决<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git submodule add https://github.com/wuchong/jacman.git themes/jacman</div></pre></td></tr></table></figure></p>
-<p>当前工程根路径下生成一个名为“.gitmodules”的文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[submodule &quot;themes/jacman&quot;]</div><div class="line">	path = themes/jacman</div><div class="line">	url = https://github.com/wuchong/jacman.git</div></pre></td></tr></table></figure></p>
-<p>描述了子模块的信息</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2017/01/19/spring自定义标签如何实现/" title="spring自定义标签如何实现" itemprop="url">spring自定义标签如何实现</a>
@@ -143,9 +118,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <h2 id="一-完成一个自定义配置一般需要以下步骤"><a href="#一-完成一个自定义配置一般需要以下步骤" class="headerlink" title="一.完成一个自定义配置一般需要以下步骤"></a>一.完成一个自定义配置一般需要以下步骤</h2><ol>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-完成一个自定义配置一般需要以下步骤"><span class="toc-number">1.</span> <span class="toc-text">一.完成一个自定义配置一般需要以下步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-设计配置属性和JavaBean"><span class="toc-number">2.</span> <span class="toc-text">二.设计配置属性和JavaBean</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-编写XSD文件"><span class="toc-number">3.</span> <span class="toc-text">三.编写XSD文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-编写NamespaceHandler和BeanDefinitionParser完成解析工作"><span class="toc-number">4.</span> <span class="toc-text">四.编写NamespaceHandler和BeanDefinitionParser完成解析工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五-编写spring-handlers和spring-schemas"><span class="toc-number">5.</span> <span class="toc-text">五.编写spring.handlers和spring.schemas</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六-在Bean文件中应用"><span class="toc-number">6.</span> <span class="toc-text">六.在Bean文件中应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七-测试"><span class="toc-number">7.</span> <span class="toc-text">七.测试</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="一-完成一个自定义配置一般需要以下步骤"><a href="#一-完成一个自定义配置一般需要以下步骤" class="headerlink" title="一.完成一个自定义配置一般需要以下步骤"></a>一.完成一个自定义配置一般需要以下步骤</h2><ol>
 <li>设计配置属性和JavaBean</li>
 <li>编写XSD文件</li>
 <li>编写NamespaceHandler和BeanDefinitionParser完成解析工作</li>
@@ -177,14 +159,9 @@
 <p><demo:user id="liujia" name="刘佳" age="18">  是一个具体的自定义配置使用实例。</demo:user></p>
 <h2 id="七-测试"><a href="#七-测试" class="headerlink" title="七.测试"></a>七.测试</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ApplicationContext ctx = new ClassPathXmlApplicationContext(&quot;application.xml&quot;);</div><div class="line">User user = (User)ctx.getBean(&quot;liujia&quot;);</div><div class="line">System.out.println(user.getId());</div><div class="line">System.out.println(user.getName());</div><div class="line">System.out.println(user.getAge());</div></pre></td></tr></table></figure>
 <p>输出：<br>liujia<br>刘佳<br>18</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 
@@ -197,212 +174,51 @@
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
-</div>
+	  <div data-url="http://yoursite.com/2017/01/19/spring自定义标签如何实现/" data-title="spring自定义标签如何实现 | DODOI" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/01/19/微信小程序-尺寸单位rpx/" title="微信小程序-尺寸单位rpx" itemprop="url">微信小程序-尺寸单位rpx</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Liu Jia" target="_blank" itemprop="author">Liu Jia</a>
-		
-  <p class="article-time">
-    <time datetime="2017-01-19T08:43:38.000Z" itemprop="datePublished"> Published 2017-01-19</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>rpx单位是微信小程序中css的尺寸单位，rpx可以根据屏幕宽度进行自适应。</p>
-<h4 id="Iphone设备相关参数"><a href="#Iphone设备相关参数" class="headerlink" title="Iphone设备相关参数"></a>Iphone设备相关参数</h4><table>
-<thead>
-<tr>
-<th>设备</th>
-<th>屏幕尺寸</th>
-<th>分辨率(PT)</th>
-<th>Reader</th>
-<th>分辨率(px)</th>
-<th>渲染后</th>
-<th>PPI(DPI)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>iPhone 3GS</td>
-<td>3.5寸</td>
-<td>320*480</td>
-<td>@1x</td>
-<td>320*480</td>
-<td>空</td>
-<td>163</td>
-</tr>
-<tr>
-<td>iPhone 4/4S</td>
-<td>3.5寸</td>
-<td>320*480</td>
-<td>@2x</td>
-<td>640*960</td>
-<td>空</td>
-<td>326</td>
-</tr>
-<tr>
-<td>iPhone 5/5S/5C</td>
-<td>4.0寸</td>
-<td>320*568</td>
-<td>@2x</td>
-<td>640*1136</td>
-<td>空</td>
-<td>326</td>
-</tr>
-<tr>
-<td>iPhone 6/6S</td>
-<td>4.7寸</td>
-<td>375*667</td>
-<td>@2x</td>
-<td>750*1334</td>
-<td>空</td>
-<td>326</td>
-</tr>
-<tr>
-<td>iPhone 6P</td>
-<td>5.5寸</td>
-<td>414*736</td>
-<td>@3x</td>
-<td>1242*2208</td>
-<td>1080*1920</td>
-<td>401</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>pt:逻辑分辨率； pt的大小与屏幕的尺寸有关系，简单可以理解为长度和视觉单位</li>
-<li>px指物理分辨率,和屏幕尺寸没关系<h4 id="pt和px关系"><a href="#pt和px关系" class="headerlink" title="pt和px关系"></a>pt和px关系</h4></li>
-<li>1个pt可以有1个px构成，也可以有2个px,还可以有3个甚至更多</li>
-<li>Iphone6是由2个px构成的。<br>-</li>
-</ul>
-<h4 id="如何做不同分辨率设备的自适应"><a href="#如何做不同分辨率设备的自适应" class="headerlink" title="如何做不同分辨率设备的自适应"></a>如何做不同分辨率设备的自适应</h4><ul>
-<li>以iphone6的物理像素750*1334为视觉稿进行设计，而在小程序中使用rpx为单位</li>
-<li>iphone6下  1px = 1rpx = 0.5pt</li>
-<li>使用rpx小程序会在不同分辨率的设备下自动进行转换，而px不会</li>
-</ul>
-<p>建议设计团队按iphone6来做设计图,因为<br>Iphone6 1px=1rpx<br>Iphone6 plus 1px=0.6rpx<br>Iphone6换算比较方便。</p>
-<p>不是所有的单位都适合rpx，字体不适合rpx,会导致不同设备看不清</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/前端/">前端</a><a href="/tags/小程序/">小程序</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/01/19/hello-world/" title="Hexo 开发命令" itemprop="url">Hexo 开发命令</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Liu Jia" target="_blank" itemprop="author">Liu Jia</a>
-		
-  <p class="article-time">
-    <time datetime="2017-01-19T08:05:12.546Z" itemprop="datePublished"> Published 2017-01-19</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>熟悉Hexo命令，</p>
-<h2 id="让我们开始吧"><a href="#让我们开始吧" class="headerlink" title="让我们开始吧"></a>让我们开始吧</h2><h3 id="创建一篇文章"><a href="#创建一篇文章" class="headerlink" title="创建一篇文章"></a>创建一篇文章</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new &quot;My New Post&quot;</div></pre></td></tr></table></figure>
-<h3 id="运行本地服务"><a href="#运行本地服务" class="headerlink" title="运行本地服务"></a>运行本地服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>浏览器打开地址 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></p>
-<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/杂项/">杂项</a>
-  </div>
-
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/01/19/z-submodule/" title="hexo项目引用模板不能提交问题 submodule问题">
+  <strong>上一篇：</strong><br/>
+  <span>
+  hexo项目引用模板不能提交问题 submodule问题</span>
+</a>
 </div>
 
 
+<div class="next">
+<a href="/2017/01/19/微信小程序-尺寸单位rpx/"  title="微信小程序-尺寸单位rpx">
+ <strong>下一篇：</strong><br/> 
+ <span>微信小程序-尺寸单位rpx
+</span>
+</a>
+</div>
 
+</nav>
 
-<div class="comments-count">
 	
-</div>
 
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-完成一个自定义配置一般需要以下步骤"><span class="toc-number">1.</span> <span class="toc-text">一.完成一个自定义配置一般需要以下步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-设计配置属性和JavaBean"><span class="toc-number">2.</span> <span class="toc-text">二.设计配置属性和JavaBean</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-编写XSD文件"><span class="toc-number">3.</span> <span class="toc-text">三.编写XSD文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-编写NamespaceHandler和BeanDefinitionParser完成解析工作"><span class="toc-number">4.</span> <span class="toc-text">四.编写NamespaceHandler和BeanDefinitionParser完成解析工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五-编写spring-handlers和spring-schemas"><span class="toc-number">5.</span> <span class="toc-text">五.编写spring.handlers和spring.schemas</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六-在Bean文件中应用"><span class="toc-number">6.</span> <span class="toc-text">六.在Bean文件中应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七-测试"><span class="toc-number">7.</span> <span class="toc-text">七.测试</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
@@ -560,12 +376,89 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
@@ -636,4 +529,4 @@ var _hmt = _hmt || [];
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>

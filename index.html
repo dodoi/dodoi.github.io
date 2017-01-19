@@ -78,6 +78,134 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/01/19/微信小程序-尺寸单位rpx/" title="微信小程序-尺寸单位rpx" itemprop="url">微信小程序-尺寸单位rpx</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Liu Jia" target="_blank" itemprop="author">Liu Jia</a>
+		
+  <p class="article-time">
+    <time datetime="2017-01-19T08:43:38.000Z" itemprop="datePublished"> 发表于 2017-01-19</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>rpx单位是微信小程序中css的尺寸单位，rpx可以根据屏幕宽度进行自适应。</p>
+<h4 id="Iphone设备相关参数"><a href="#Iphone设备相关参数" class="headerlink" title="Iphone设备相关参数"></a>Iphone设备相关参数</h4><table>
+<thead>
+<tr>
+<th>设备</th>
+<th>屏幕尺寸</th>
+<th>分辨率(PT)</th>
+<th>Reader</th>
+<th>分辨率(px)</th>
+<th>渲染后</th>
+<th>PPI(DPI)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>iPhone 3GS</td>
+<td>3.5寸</td>
+<td>320*480</td>
+<td>@1x</td>
+<td>320*480</td>
+<td>空</td>
+<td>163</td>
+</tr>
+<tr>
+<td>iPhone 4/4S</td>
+<td>3.5寸</td>
+<td>320*480</td>
+<td>@2x</td>
+<td>640*960</td>
+<td>空</td>
+<td>326</td>
+</tr>
+<tr>
+<td>iPhone 5/5S/5C</td>
+<td>4.0寸</td>
+<td>320*568</td>
+<td>@2x</td>
+<td>640*1136</td>
+<td>空</td>
+<td>326</td>
+</tr>
+<tr>
+<td>iPhone 6/6S</td>
+<td>4.7寸</td>
+<td>375*667</td>
+<td>@2x</td>
+<td>750*1334</td>
+<td>空</td>
+<td>326</td>
+</tr>
+<tr>
+<td>iPhone 6P</td>
+<td>5.5寸</td>
+<td>414*736</td>
+<td>@3x</td>
+<td>1242*2208</td>
+<td>1080*1920</td>
+<td>401</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>pt:逻辑分辨率； pt的大小与屏幕的尺寸有关系，简单可以理解为长度和视觉单位</li>
+<li>px指物理分辨率,和屏幕尺寸没关系<h4 id="pt和px关系"><a href="#pt和px关系" class="headerlink" title="pt和px关系"></a>pt和px关系</h4></li>
+<li>1个pt可以有1个px构成，也可以有2个px,还可以有3个甚至更多</li>
+<li>Iphone6是由2个px构成的。<br>-</li>
+</ul>
+<h4 id="如何做不同分辨率设备的自适应"><a href="#如何做不同分辨率设备的自适应" class="headerlink" title="如何做不同分辨率设备的自适应"></a>如何做不同分辨率设备的自适应</h4><ul>
+<li>以iphone6的物理像素750*1334为视觉稿进行设计，而在小程序中使用rpx为单位</li>
+<li>iphone6下  1px = 1rpx = 0.5pt</li>
+<li>使用rpx小程序会在不同分辨率的设备下自动进行转换，而px不会</li>
+</ul>
+<p>建议设计团队按iphone6来做设计图,因为<br>Iphone6 1px=1rpx<br>Iphone6 plus 1px=0.6rpx<br>Iphone6换算比较方便。</p>
+<p>不是所有的单位都适合rpx，字体不适合rpx,会导致不同设备看不清</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/前端/">前端</a><a href="/tags/小程序/">小程序</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/01/19/hello-world/" title="Hexo 开发命令" itemprop="url">Hexo 开发命令</a>
   </h1>
   <p class="article-author">By
@@ -107,6 +235,11 @@
     <footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/杂项/">杂项</a>
+  </div>
 
 </div>
 
@@ -141,6 +274,25 @@
   
 
   
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/小程序/" title="小程序">小程序<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/杂项/" title="杂项">杂项<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
 
   <div class="linkslist">
   <p class="asidetitle">友情链接</p>
@@ -186,7 +338,7 @@
 	
 	
 	<section class="info">
-		<p> Hello ,I&#39;m Larry Page in Google. <br/>
+		<p> Hello ,I&#39;m Liu Jia in Jingoal. <br/>
 			This is my blog,believe it or not.</p>
 	</section>
 	 
